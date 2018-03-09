@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'dart:async';
 
 void main() =>
     runApp(new MaterialApp(title: "Whats for Lunch?", home: new LandingPage()));
@@ -22,33 +21,33 @@ class LandingPage extends StatelessWidget {
                 context: context,
                 child: new SimpleDialog(
                     title: new Text(title + ":"),
+                    children: <Widget>[
+                      new ListTile(
+                        leading: new Icon(Icons.restaurant),
+                        title: new Text('Address'),
+                        subtitle: new Text(address),
+                      ),
+                      new ListTile(
+                        leading: new Icon(Icons.local_phone),
+                        title: new Text('Phone Number'),
+                        subtitle: new Text(phoneNumber),
+                        onTap: _launchCall,
+                      ),
+                      new ListTile(
+                        leading: new Icon(Icons.web),
+                        title: new Text('Website'),
+                        subtitle: new Text(url),
+                        onTap: _launchURL,
+                      ),
+                      new ButtonTheme.bar(
+                          child: new ButtonBar(
                         children: <Widget>[
-                          new ListTile(
-                            leading: new Icon(Icons.restaurant),
-                            title: new Text('Address'),
-                            subtitle: new Text(address),
-                          ),
-                          new ListTile(
-                            leading: new Icon(Icons.local_phone),
-                            title: new Text('Phone Number'),
-                            subtitle: new Text(phoneNumber),
-                            onTap: _launchCall,
-                          ),
-                          new ListTile(
-                            leading: new Icon(Icons.web),
-                            title: new Text('Website'),
-                            subtitle: new Text(url),
-                            onTap: _launchURL,
-                          ),
-                          new ButtonTheme.bar(
-                              child: new ButtonBar(
-                            children: <Widget>[
-                              new FlatButton(
-                                  onPressed: () => Navigator.of(context).pop(),
-                                  child: const Text('Okay')),
-                            ],
-                          ))
-                        ]));
+                          new FlatButton(
+                              onPressed: () => Navigator.of(context).pop(),
+                              child: const Text('Okay')),
+                        ],
+                      ))
+                    ]));
           },
           trailing: new IconButton(
               icon: new Icon(Icons.favorite, color: null), onPressed: null));
@@ -57,11 +56,12 @@ class LandingPage extends StatelessWidget {
     List<Widget> _buildRestaurantsListView() {
       List<Widget> listWidgets = new List();
       listWidgets.add(_buildWidget(
-          title: "Bellacinos",
-          description: "Sandwhiches and Pizza",
-          address: "11249 St Charles Rock Rd, Bridgeton, MO 63044",
-          url: "http://bellacinosgrinders.com",
-          phoneNumber: "(314) 736-5055",));
+        title: "Bellacinos",
+        description: "Sandwhiches and Pizza",
+        address: "11249 St Charles Rock Rd, Bridgeton, MO 63044",
+        url: "http://bellacinosgrinders.com",
+        phoneNumber: "(314) 736-5055",
+      ));
       listWidgets.add(_buildWidget(
           title: "Imo's",
           description: 'St. Louis Style Pizza',
@@ -121,17 +121,7 @@ class LandingPage extends StatelessWidget {
         children: _buildRestaurantsListView(),
       ),
       floatingActionButton: new FloatingActionButton(
-        tooltip: 'Add',
-        child: new Icon(Icons.add),
-//        onPressed: () {
-//          return new Card(
-//            child: new Column(
-//              mainAxisSize: MainAxisSize.min,
-//              children: <Widget>[],
-//            ),
-//          );
-//        }
-      ),
+          tooltip: 'Add', child: new Icon(Icons.add), onPressed: null),
     );
   }
 }
