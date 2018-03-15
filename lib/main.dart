@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'favoritewidget.dart';
 
-void main() =>
-    runApp(new MaterialApp(title: "Whats for Lunch?", home: new LandingPage()));
+void main() {
+  runApp(new MaterialApp(title: "Whats for Lunch?", home: new LandingPage()));
+}
 
 class LandingPage extends StatelessWidget {
   @override
@@ -23,7 +25,7 @@ class LandingPage extends StatelessWidget {
                     title: new Text(title + ":"),
                     children: <Widget>[
                       new ListTile(
-                        leading: new Icon(Icons.restaurant),
+                        leading: new Icon(Icons.place),
                         title: new Text('Address'),
                         subtitle: new Text(address),
                       ),
@@ -34,7 +36,7 @@ class LandingPage extends StatelessWidget {
                         onTap: _launchCall,
                       ),
                       new ListTile(
-                        leading: new Icon(Icons.web),
+                        leading: new Icon(Icons.launch),
                         title: new Text('Website'),
                         subtitle: new Text(url),
                         onTap: _launchURL,
@@ -49,8 +51,7 @@ class LandingPage extends StatelessWidget {
                       ))
                     ]));
           },
-          trailing: new IconButton(
-              icon: new Icon(Icons.favorite, color: null), onPressed: null));
+          trailing: new FavoriteWidget());
     }
 
     List<Widget> _buildRestaurantsListView() {
@@ -105,6 +106,12 @@ class LandingPage extends StatelessWidget {
           url: "http://www.seoultaco.com",
           phoneNumber: "(314) 863-1148"));
       listWidgets.add(_buildWidget(
+          title: 'Whistle Stop',
+          description: 'Sandwiches',
+          address: "1 Carson Rd, Ferguson, MO 63135",
+          url: "http://www.fergusonwhistlestop.com/",
+          phoneNumber: "(314) 521-1600"));
+      listWidgets.add(_buildWidget(
           title: 'White Castle',
           description: 'Sliders',
           address: "9301 Natural Bridge Rd, Berkeley, MO 63134",
@@ -114,15 +121,111 @@ class LandingPage extends StatelessWidget {
     }
 
     return new Scaffold(
-      appBar: new AppBar(
-        title: new Text('Restaraunts'),
-      ),
-      body: new ListView(
-        children: _buildRestaurantsListView(),
-      ),
-      floatingActionButton: new FloatingActionButton(
-          tooltip: 'Add', child: new Icon(Icons.add), onPressed: null),
-    );
+        appBar: new AppBar(
+          title: new Text('Restaraunts'),
+        ),
+        body: new ListView(
+          children: _buildRestaurantsListView(),
+        ),
+        drawer: new Drawer(
+          child: new ListView(
+            children: <Widget>[
+              new UserAccountsDrawerHeader(
+                  accountName: const Text('John Doe'),
+                  accountEmail: const Text('john.doe@gmail.com'),
+                  currentAccountPicture: new CircleAvatar(
+                      backgroundColor: Colors.white, child: new Text('John'))),
+              new ListTile(
+                title: new Text('Nearby'),
+                leading: new Icon(Icons.near_me),
+                onTap: null,
+              ),
+              new ListTile(
+                title: new Text('Search'),
+                leading: new Icon(Icons.search),
+                onTap: null,
+              ),
+              new ListTile(
+                title: new Text('Settings'),
+                leading: new Icon(Icons.settings),
+                onTap: null,
+              ),
+              new Divider(),
+              new ListTile(
+                title: new Text('Log Out'),
+                leading: new Icon(Icons.exit_to_app),
+                onTap: null,
+              )
+            ],
+          ),
+        ),
+        floatingActionButton: new FloatingActionButton(
+            tooltip: 'Add',
+            child: new Icon(Icons.add),
+            onPressed: () {
+              showDialog(
+                  context: context,
+                  child: new Card(
+                      child: new Column(
+                    children: <Widget>[
+                      new ListTile(
+                        title: new TextField(
+                          decoration: new InputDecoration(
+                              hintText: "Name", icon: new Icon(Icons.home)),
+                        ),
+                      ),
+                      new ListTile(
+                        title: new TextField(
+                          decoration: new InputDecoration(
+                            hintText: "Description",
+                            icon: new Icon(Icons.local_dining),
+                          ),
+                        ),
+                      ),
+                      new ListTile(
+                        title: new TextField(
+                            decoration: new InputDecoration(
+                          hintText: "Address",
+                          icon: new Icon(Icons.place),
+                        )),
+                      ),
+                      new ListTile(
+                        title: new TextField(
+                          decoration: new InputDecoration(
+                            hintText: "Phone Number",
+                            icon: new Icon(Icons.phone),
+                          ),
+                        ),
+                      ),
+                      new ListTile(
+                        title: new TextField(
+                          decoration: new InputDecoration(
+                            hintText: "Website",
+                            icon: new Icon(Icons.web),
+                          ),
+                        ),
+                      ),
+                      new Row(
+                        children: <Widget>[
+                          new Expanded(
+                            child: new RaisedButton(
+                              onPressed: () => Navigator.of(context).pop(),
+                              child: new Text('Okay'),
+                              color: Colors.blue,
+                            ),
+                          ),
+                          new Expanded(
+                            child: new RaisedButton(
+                              onPressed: () => Navigator.of(context).pop(),
+                              child: new Text('Back'),
+                              color: Colors.grey,
+                            ),
+                          ),
+                        ],
+                      )
+                    ],
+                  )));
+            }));
   }
 }
 
