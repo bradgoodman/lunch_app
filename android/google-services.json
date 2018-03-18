@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "159161599093",
+    "firebase_url": "https://lunch-app-1520034256396.firebaseio.com",
+    "project_id": "lunch-app-1520034256396",
+    "storage_bucket": "lunch-app-1520034256396.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:159161599093:android:934ad7654d38fc40",
+        "android_client_info": {
+          "package_name": "com.example.lunchapp2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "159161599093-1m0o3grk5ifomkjinvphc71p75rqigjo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA87xPFseaDVCgoFjh3uBbG_jqcOU_lSxQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

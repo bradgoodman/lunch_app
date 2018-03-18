@@ -1,0 +1,72 @@
+[
+  {
+    "title": "Bellacinos",
+    "description": "Sandwhiches and Pizza",
+    "address": "11249 St Charles Rock Rd, Bridgeton, MO 63044",
+    "url": "http://bellacinosgrinders.com",
+    "phoneNumber": "(314) 736-5055"
+  },
+  {
+    "title": "Imo's",
+    "description": "St. Louis Style Pizza",
+    "address": "510 Airport Rd, Ferguson, MO 63135",
+    "url": "https://www.imospizza.com",
+    "phoneNumber": "(314) 427-4141"
+  },
+  {
+    "title": "Jack In The Box",
+    "description": "Tacos & Burgers",
+    "address": "9707 Natural Bridge Rd, Berkeley, MO 63134",
+    "url": "https://www.jackinthebox.com",
+    "phoneNumber": "(314) 423-0244"
+  },
+  {
+    "title": "Jimmy Johns",
+    "description": "Sandwiches",
+    "address": "11905 St Charles Rock Rd, Bridgeton, MO 63044",
+    "url": "https://www.jimmyjohns.com",
+    "phoneNumber": "(314) 770-9991"
+  },
+  {
+    "title": "McDonalds",
+    "description": "Burgers",
+    "address": "1790 S Florissant Rd, St. Louis, MO 63121",
+    "url": "https://www.mcdonalds.com",
+    "phoneNumber": "(314) 521-1062"
+  },
+  {
+    "title": "Papa Johns",
+    "description": "Pizza",
+    "address": "417 S Florissant Rd, Ferguson, MO 63135",
+    "url": "https://www.papajohns.com",
+    "phoneNumber": "(314) 521-1062"
+  },
+  {
+    "title": "Pearl Cafe",
+    "description": "Thai Food",
+    "address": "8416 N Lindbergh Blvd, Florissant, MO 63031",
+    "url": "http://pearlstl.com",
+    "phoneNumber": "(314) 831-3701"
+  },
+  {
+    "title": "Seoul Taco",
+    "description": "Korean Street Food",
+    "address": "6665 Delmar Blvd, St. Louis, MO 63130",
+    "url": "http://www.seoultaco.com",
+    "phoneNumber": "(314) 863-1148"
+  },
+  {
+    "title": "Whistle Stop",
+    "description": "Sandwiches",
+    "address": "1 Carson Rd, Ferguson, MO 63135",
+    "url": "http://www.fergusonwhistlestop.com/",
+    "phoneNumber": "(314) 521-1600"
+  },
+  {
+    "title": "White Castle",
+    "description": "Sliders",
+    "address": "9301 Natural Bridge Rd, Berkeley, MO 63134",
+    "url": "https://www.whitecastle.com",
+    "phoneNumber": "(314) 427-5773"
+  }
+]
