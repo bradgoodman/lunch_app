@@ -12,7 +12,7 @@ class RestaurantInfo extends StatefulWidget {
 }
 
 class _RestaurantInfoState extends State<RestaurantInfo> {
-  MapView mapView = new MapView();
+  MapView mapView;
   var staticMapProvider = new StaticMapProvider(API_KEY);
   var compositeSubscription = new CompositeSubscription();
   Uri _staticMapUri;
@@ -21,7 +21,7 @@ class _RestaurantInfoState extends State<RestaurantInfo> {
   @override
   initState() {
     super.initState();
-    MapView mapView = new MapView();
+    mapView = new MapView();
     _cameraPosition = new CameraPosition(Locations.portland, 12.0);
     _staticMapUri = staticMapProvider.getStaticUri(Locations.portland, 12,
         width: 900, height: 400);
