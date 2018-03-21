@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:lunch_app_2/new-restaurant-view.dart';
-import 'package:lunch_app_2/restaurant-info.dart';
 import 'dart:convert';
 import 'home.dart';
 

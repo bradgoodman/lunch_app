@@ -9,7 +9,8 @@ class RestaurantInfo extends StatelessWidget {
   String url;
   String phoneNumber;
 
-  RestaurantInfo(String title, String description, String address, String url, String phoneNumber) {
+  RestaurantInfo(String title, String description, String address, String url,
+      String phoneNumber) {
     this.title = title;
     this.description = description;
     this.address = address;
@@ -19,9 +20,9 @@ class RestaurantInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-  return new BaseScaffold(
-    title: title,
-    body: new ListView(children: _buildListView(context)),
+    return new BaseScaffold(
+      title: title,
+      body: new ListView(children: _buildListView(context)),
     );
   }
 
@@ -39,6 +40,7 @@ class RestaurantInfo extends StatelessWidget {
         onTap: () => _launchCall(phoneNumber),
       ),
       new ListTile(
+
         leading: new Icon(Icons.launch),
         title: new Text('Website'),
         subtitle: new Text(url),
@@ -46,6 +48,7 @@ class RestaurantInfo extends StatelessWidget {
       ),
     ]);
   }
+
   static _launchURL(String url) async {
     if (await canLaunch(url)) {
       await launch(url);
