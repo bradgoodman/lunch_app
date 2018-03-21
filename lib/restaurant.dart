@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lunch_app_2/favorite-widget.dart';
 import 'package:lunch_app_2/restaurant-info.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class Restaurant extends ListTile {
   Restaurant(

@@ -3,17 +3,16 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:lunch_app_2/Launcher.dart';
 import 'package:lunch_app_2/base-scaffold.dart';
 import 'package:map_view/camera_position.dart';
 import 'package:map_view/map_view.dart';
 import 'package:map_view/static_map_provider.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 var API_KEY = "AIzaSyDIPOcga2TIdd3BvwyYr3HPhuf6B1anny0";
 
 class RestaurantInfoState extends State<RestaurantInfo> {
-  String title;
-  String description;
+  String title; String description;
   String address;
   String url;
   String phoneNumber;
@@ -100,23 +99,6 @@ class RestaurantInfoState extends State<RestaurantInfo> {
     );
   }
 
-  static _launchURL(String url) async {
-    if (await canLaunch(url)) {
-      await launch(url);
-    } else {
-      throw 'Could not launch $url';
-    }
-  }
-
-  static _launchCall(String phoneNumber) async {
-    String call = 'tel: ' + phoneNumber;
-    if (await canLaunch(call)) {
-      await launch(call);
-    } else {
-      throw 'Could not $call phone number';
-    }
-  }
-
   List<Widget> _buildListView(BuildContext context) {
     var elements = new List.from([
       new ListTile(
@@ -128,13 +110,13 @@ class RestaurantInfoState extends State<RestaurantInfo> {
         leading: new Icon(Icons.local_phone),
         title: new Text('Phone Number'),
         subtitle: new Text(phoneNumber),
-        onTap: () => _launchCall(phoneNumber),
+        onTap: () => Launcher.launchCall(phoneNumber),
       ),
       new ListTile(
         leading: new Icon(Icons.launch),
         title: new Text('Website'),
         subtitle: new Text(url),
-        onTap: () => _launchURL(url),
+        onTap: () => Launcher.launchURL(url),
       )
     ]);
 
